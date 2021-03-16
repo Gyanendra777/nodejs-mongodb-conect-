@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // yha pr jo v ap localhost/______ ke bad likhate h v mongodb me ak data base bn jata h 
-mongoose.connect('mongodb://localhost/traniosite', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/mongodb_data_name', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -21,9 +21,9 @@ kittySchema.methods.speak = function () {
   // console.log(greeting);
 }
 
-const traniosite = mongoose.model('traniosite', kittySchema);
+const mongodb_data_name = mongoose.model('mongodb_data_name', kittySchema);
 
-const gyanendra = new traniosite({ name: 'gyanendra dubey' });
+const gyanendra = new mongodb_data_name({ name: 'gyanendra dubey' });
 
 
 gyanendra.save(function (err, gyanendra) {
@@ -31,7 +31,7 @@ gyanendra.save(function (err, gyanendra) {
   // gyanendra.speak();
 });
 
-traniosite.find( {nma:"gyanendra"},function (err, traniosites) {
+mongodb_data_name.find( {nma:"gyanendra"},function (err, mongodb_data_names) {
   if (err) return console.error(err);
-  console.log(traniosites);
+  console.log(mongodb_data_names);
 })
